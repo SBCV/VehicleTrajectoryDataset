@@ -102,7 +102,7 @@ def post_process_segmentation_output(model_idp,
     logger.vinfo('masked_jpg_image_odp', masked_jpg_image_odp)
     logger.vinfo('is_recursive_mask_idp', is_recursive_mask_idp)
 
-    frames_jpg_list = _get_image_paths_in_folder(rendered_image_idp)
+    frames_jpg_list = get_image_paths_in_folder(rendered_image_idp)
     logger.info('Found ' + str(len(frames_jpg_list)) + ' images')
 
     if is_recursive_mask_idp:
