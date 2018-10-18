@@ -4,14 +4,8 @@ import os
 from Utility.Logging_Extension import logger
 from Utility.File_Handler.H5_File_Handler import H5FileHandler
 from Utility.OS_Extension import mkdir_safely, makedirs_safely
+from Collect_Image_Paths import get_image_paths_in_folder
 
-
-def _get_image_paths_in_folder(image_folder):
-    image_paths = [os.path.join(image_folder, file_name)
-                   for file_name in os.listdir(image_folder)
-                   if (os.path.isfile(os.path.join(image_folder, file_name))
-                   and os.path.splitext(file_name)[1] == '.jpg')]
-    return image_paths
 
 def create_output_for_folder(path_to_model_output,
                              frames_jpg_list,
@@ -30,7 +24,7 @@ def create_output_for_folder(path_to_model_output,
         makedirs_safely(output_h5_folder_path)
         logger.vinfo('output_h5_folder_name', output_h5_folder_name)
 
-    input_mask_list = _get_image_paths_in_folder(mask_image_ifp)
+    input_mask_list = get_image_paths_in_folder(mask_image_ifp)
 
     for frame_jpg_path, input_object_mask_jpg_path in zip(
             frames_jpg_list, input_mask_list):

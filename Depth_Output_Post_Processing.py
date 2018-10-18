@@ -5,15 +5,10 @@ from Utility.Logging_Extension import logger
 from Utility.File_Handler.EXR_File_Handler import EXRFileHandler
 from Utility.File_Handler.NVM_File_Handler import NVMFileHandler
 from Utility.File_Handler.Trajectory_File_Handler import TrajectoryFileHandler
+from Collect_Image_Paths import get_image_paths_in_folder
 
-def _get_image_paths_in_folder(image_folder, ext='.jpg'):
-    image_paths = [os.path.join(image_folder, file_name)
-                   for file_name in os.listdir(image_folder)
-                   if (os.path.isfile(os.path.join(image_folder, file_name))
-                   and os.path.splitext(file_name)[1] == ext)]
-    return image_paths
 
-def post_process_depth_output(path_to_model_output,
+def post_process_depth_output(model_idp,
                               animation_transformations_file_suffix,
                               input_depth_image_folder_name,
                               output_nvm_folder_name,
@@ -22,19 +17,19 @@ def post_process_depth_output(path_to_model_output,
     logger.info('post_process_depth_output: ...')
 
     # Input path
-    input_depth_image_folder_path = os.path.join(path_to_model_output, input_depth_image_folder_name)
+    input_depth_image_folder_path = os.path.join(model_idp, input_depth_image_folder_name)
     animation_transformations_file = os.path.join(
-        path_to_model_output, animation_transformations_file_suffix)
+        model_idp, animation_transformations_file_suffix)
 
     if os.path.isdir(input_depth_image_folder_path):
 
         # Output path
-        nvm_folder_path = os.path.join(path_to_model_output, output_nvm_folder_name)
+        nvm_folder_path = os.path.join(model_idp, output_nvm_folder_name)
         if not os.path.isdir(nvm_folder_path):
             os.mkdir(nvm_folder_path)
         logger.vinfo('nvm_folder_path', nvm_folder_path)
 
-        input_depth_list = _get_image_paths_in_folder(
+        input_depth_list = get_image_paths_in_folder(
             input_depth_image_folder_path, ext='.exr')
 
         # Required to avoid "IOError: broken data stream when reading image file" error
