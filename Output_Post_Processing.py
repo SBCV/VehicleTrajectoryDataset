@@ -1,6 +1,6 @@
 
 import os
-
+from shutil import copyfile
 from Segmentation_Output_Post_Processing import post_process_segmentation_output
 from Depth_Output_Post_Processing import post_process_depth_output
 from Video_Creation import create_video_from_images
@@ -143,8 +143,13 @@ if __name__ == '__main__':
     # Option 2
 
     parent_dp = os.path.dirname(os.path.realpath(__file__))
-    post_processing_config = Config(path_to_config_file=os.path.join(
-        parent_dp, 'config.cfg'))
+    example_config_path = os.path.join(parent_dp, 'config_example.cfg')
+    config_path = os.path.join(parent_dp, 'config.cfg')
+
+    if not os.path.isfile(config_path):
+        copyfile(example_config_path, config_path)
+
+    post_processing_config = Config(path_to_config_file=config_path)
 
     dp = post_processing_config.get_option_value(
         'dataset_path', str)
