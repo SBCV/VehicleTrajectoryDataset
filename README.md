@@ -8,3 +8,10 @@ Clone the repository with the following command to make sure the submodule is co
 ```
 git clone --recurse-submodules https://github.com/SBCV/VehicleTrajectoryDataset.git
 ```
+
+Run the following command to post-process the dataset:
+```
+python Output_Post_Processing.py
+```
+The first excecution will create a file ``` config.cfg ```.
+Adjust the values in this config file as required.
