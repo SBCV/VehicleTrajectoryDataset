@@ -36,7 +36,7 @@ This will create two config files, i.e.
 	VehicleTrajectoryDataset/Utility/CloudCompare/CloudCompare.cfg
 	VehicleTrajectoryDataset/Config/config.cfg
 
-The script relies on CloudCompare [CloudCompare](https://www.danielgm.net/cc/) to transform Vehicle Meshes. At least **version 2.10** is required. Set the path in ```CloudCompare.cfg``` to your CloudCompare executable. 
+The script relies on [CloudCompare](https://www.danielgm.net/cc/) to transform Vehicle Meshes. At least **version 2.10** is required. Set the path in ```CloudCompare.cfg``` to your CloudCompare executable. 
 
 In ```config.cfg``` adjust the path pointing to the downloaded dataset.
 
