@@ -2,7 +2,7 @@
 
 Scripts of the dataset corresponding to the paper [3D Vehicle Trajectory Reconstruction in Monocular Video Data Using Environment Structure Constraints](http://openaccess.thecvf.com/content_ECCV_2018/html/Sebastian_Bullinger_3D_Vehicle_Trajectory_ECCV_2018_paper.html).
 
-The actual dataset can be requested on [this](http://s.fhg.de/trajectory) Fraunhofer IOSB webpage.
+The actual dataset can be requested on [this](https://www.iosb.fraunhofer.de/en/competences/image-exploitation/object-recognition/sensor-networks/trajectory-reconstruction.html) Fraunhofer IOSB webpage.
 Download the following files from the ftp server:
 		ground_truth_data.tar.gz 
 		rendering_data.tar.gz
